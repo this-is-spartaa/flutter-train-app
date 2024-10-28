@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 
+final allStations = [
+  "수서",
+  "동탄",
+  "평택지제",
+  "천안아산",
+  "오송",
+  "대전",
+  "김천구미",
+  "동대구",
+  "경주",
+  "울산",
+  "부산",
+];
+
 class StationListPage extends StatelessWidget {
-  const StationListPage({super.key, required this.title});
+  const StationListPage({
+    super.key,
+    required this.title,
+    required this.ignoreStation,
+  });
 
   final String title;
+  final String? ignoreStation;
 
   @override
   Widget build(BuildContext context) {
-    final stations = [
-      "수서",
-      "동탄",
-      "평택지제",
-      "천안아산",
-      "오송",
-      "대전",
-      "김천구미",
-      "동대구",
-      "경주",
-      "울산",
-      "부산",
-    ];
+    final stations =
+        allStations.where((station) => station != ignoreStation).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(title),

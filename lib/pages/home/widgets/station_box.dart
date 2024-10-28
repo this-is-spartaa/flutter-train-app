@@ -30,6 +30,7 @@ class StateBox extends StatelessWidget {
             '출발역',
             departure,
             onDepartureChanged,
+            arrival,
           ),
           Container(
             width: 2,
@@ -41,6 +42,7 @@ class StateBox extends StatelessWidget {
             '도착역',
             arrival,
             onArrivalChanged,
+            departure,
           ),
         ],
       ),
@@ -52,6 +54,7 @@ class StateBox extends StatelessWidget {
     String label,
     String? dest,
     void Function(String) onChanged,
+    String? ignoreStation,
   ) {
     return Expanded(
       child: GestureDetector(
@@ -60,7 +63,10 @@ class StateBox extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return StationListPage(title: label);
+                return StationListPage(
+                  title: label,
+                  ignoreStation: ignoreStation,
+                );
               },
             ),
           );
