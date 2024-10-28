@@ -30,7 +30,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('기차 예매'),
       ),
-      backgroundColor: Colors.grey[200],
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

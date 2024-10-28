@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home/home_page.dart';
+import 'package:flutter_train_app/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,26 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            textStyle: const WidgetStatePropertyAll(
-              TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            backgroundColor: const WidgetStatePropertyAll(Colors.purple),
-            foregroundColor: const WidgetStatePropertyAll(Colors.white),
-          ),
-        ),
-      ),
+      themeMode: ThemeMode.system,
+      theme: theme,
+      darkTheme: darkTheme,
       home: HomePage(),
     );
   }

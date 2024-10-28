@@ -10,7 +10,7 @@ class SeatLabelBox extends StatelessWidget {
       children: [
         seatLabel('선택됨', Colors.purple),
         const SizedBox(width: 20),
-        seatLabel('선택됨', Colors.grey[300]!),
+        seatLabel('선택됨', Theme.of(context).disabledColor),
       ],
     );
   }

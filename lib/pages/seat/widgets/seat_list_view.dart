@@ -18,7 +18,7 @@ class SeatListView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20),
         children: [
           columnLabels(),
-          ...List.generate(20, (i) => row(i + 1)),
+          ...List.generate(20, (i) => row(context, i + 1)),
         ],
       ),
     );
@@ -53,27 +53,27 @@ class SeatListView extends StatelessWidget {
     );
   }
 
-  Widget row(int rowNum) {
+  Widget row(BuildContext context, int rowNum) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          seat(rowNum, 1),
+          seat(context, rowNum, 1),
           const SizedBox(width: 4),
-          seat(rowNum, 2),
+          seat(context, rowNum, 2),
           const SizedBox(width: 4),
           listLabel('$rowNum'),
           const SizedBox(width: 4),
-          seat(rowNum, 3),
+          seat(context, rowNum, 3),
           const SizedBox(width: 4),
-          seat(rowNum, 4),
+          seat(context, rowNum, 4),
         ],
       ),
     );
   }
 
-  Widget seat(int rowNum, int colNum) {
+  Widget seat(BuildContext context, int rowNum, int colNum) {
     return GestureDetector(
       onTap: () {
         onSelected(rowNum, colNum);
@@ -84,7 +84,7 @@ class SeatListView extends StatelessWidget {
         decoration: BoxDecoration(
           color: selectedRow == rowNum && selectedCol == colNum
               ? Colors.purple
-              : Colors.grey[300],
+              : Theme.of(context).disabledColor,
           borderRadius: BorderRadius.circular(8),
         ),
       ),
